@@ -1,0 +1,2 @@
+[[plugins]]
+repo = 'vim-airline/vim-airline'
