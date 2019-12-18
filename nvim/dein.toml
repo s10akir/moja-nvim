@@ -26,3 +26,10 @@ depends  = ['neosnippet-snippets','context_filetype.vim']
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
+
+
+[[plugins]]
+repo     = 'dense-analysis/ale'
+hook_add = '''
+  let g:ale_sign_column_always = 1
+'''
