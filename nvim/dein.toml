@@ -1,2 +1,5 @@
 [[plugins]]
 repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'ayu-theme/ayu-vim'
