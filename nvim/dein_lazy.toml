@@ -25,4 +25,5 @@ autocmd FileType vue syntax sync fromstart
 [[plugins]]
 repo = 'prettier/vim-prettier'
 build = 'npm install'
-on_ft = ['javascript', 'typescript', 'vue', 'jsx', 'css', 'scss', 'json', 'markdown', 'html', 'yaml']
+on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift']
+
