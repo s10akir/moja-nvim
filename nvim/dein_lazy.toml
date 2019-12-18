@@ -21,3 +21,8 @@ hook_add = '''
 " コレを書いておかないとファイル途中でハイライトが消えることがある
 autocmd FileType vue syntax sync fromstart
 '''
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+build = 'npm install'
+on_ft = ['javascript', 'typescript', 'vue', 'jsx', 'css', 'scss', 'json', 'markdown', 'html', 'yaml']

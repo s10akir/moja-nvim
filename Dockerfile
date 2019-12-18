@@ -16,6 +16,8 @@ RUN apk update && \
     linux-headers \
     musl-dev\
     neovim \
+    nodejs \
+    npm \
     python-dev \
     py-pip \
     python3-dev \
