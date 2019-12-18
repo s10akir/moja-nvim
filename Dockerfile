@@ -2,6 +2,7 @@ FROM alpine:latest
 
 LABEL maintainer "Akira Shinohara <k017c1067@it-neec.jp>"
 
+
 # マルチバイト文字をまともに扱うための設定
 ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 
@@ -29,7 +30,7 @@ RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/instal
 
 COPY nvim /root/.config/nvim
 
-RUN nvim +'call dein#install()' +qa
+RUN nvim +:UpdateRemotePlugins +qa
 
 WORKDIR /workdir
 
