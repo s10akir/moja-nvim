@@ -23,6 +23,8 @@ RUN apk update && \
 
 RUN pip3 install --upgrade pip pynvim
 
+COPY nvim /root/.config/nvim
+
 WORKDIR /workdir
 
 ENTRYPOINT ["nvim"]
