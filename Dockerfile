@@ -23,6 +23,10 @@ RUN apk update && \
 
 RUN pip3 install --upgrade pip pynvim
 
+# instlal dein.vim
+RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
+    | sh -s /root/.cache/dein
+
 COPY nvim /root/.config/nvim
 
 WORKDIR /workdir
