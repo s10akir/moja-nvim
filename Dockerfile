@@ -29,6 +29,8 @@ RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/instal
 
 COPY nvim /root/.config/nvim
 
+RUN nvim +'call dein#install()' +qa
+
 WORKDIR /workdir
 
 ENTRYPOINT ["nvim"]
