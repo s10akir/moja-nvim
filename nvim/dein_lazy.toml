@@ -12,3 +12,12 @@ on_ft = ['toml']
 repo    = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
 on_ft   = ['toml']
+
+
+[[plugins]]
+repo     = 'posva/vim-vue'
+on_ft    = ['vue']
+hook_add = '''
+" コレを書いておかないとファイル途中でハイライトが消えることがある
+autocmd FileType vue syntax sync fromstart
+'''
