@@ -27,3 +27,7 @@ repo = 'prettier/vim-prettier'
 build = 'npm install'
 on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift']
 
+[[plugins]]
+repo     = 'autozimu/LanguageClient-neovim'
+rev      = 'next'
+build    = 'bash install.sh'
