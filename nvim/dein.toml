@@ -39,3 +39,6 @@ repo     = 'scrooloose/nerdtree'
 hook_add = '''
   nnoremap <silent><C-f> :NERDTreeToggle<CR>
 '''
+
+[[plugins]]
+repo = 'tpope/vim-surround'
