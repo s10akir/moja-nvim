@@ -10,9 +10,12 @@ ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 RUN apk update && \
     apk upgrade && \
     apk add --no-cache \
+    build-base \
     curl \
     gcc \
     git \
+    libxml2-dev \
+    libxslt-dev \
     linux-headers \
     musl-dev\
     neovim \
@@ -21,10 +24,14 @@ RUN apk update && \
     python-dev \
     py-pip \
     python3-dev \
-    py3-pip && \
+    py3-pip \
+    ruby \
+    ruby-dev \
+    && \
     rm -rf /var/cache/apk/*
 
 RUN pip3 install --upgrade pip pynvim
+RUN gem install -N solargraph
 
 # instlal dein.vim
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
