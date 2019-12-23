@@ -37,3 +37,7 @@ let g:LanguageClient_serverCommands =
       \   'ruby': ['solargraph', 'stdio'],
       \ }
 '''
+
+[[plugins]]
+repo  = 'ngmy/vim-rubocop'
+on_ft = ['ruby']

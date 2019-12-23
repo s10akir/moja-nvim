@@ -31,7 +31,11 @@ RUN apk update && \
     rm -rf /var/cache/apk/*
 
 RUN pip3 install --upgrade pip pynvim
-RUN gem install -N solargraph
+RUN gem install -N \
+    etc \
+    json \
+    rubocop \
+    solargraph
 
 # instlal dein.vim
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
