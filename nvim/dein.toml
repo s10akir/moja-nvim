@@ -34,11 +34,17 @@ hook_add = '''
   let g:ale_sign_column_always = 1
 '''
 
+
 [[plugins]]
 repo     = 'scrooloose/nerdtree'
 hook_add = '''
   nnoremap <silent><C-f> :NERDTreeToggle<CR>
 '''
 
+
 [[plugins]]
 repo = 'tpope/vim-surround'
+
+
+[[plugins]]
+rpeo = 'tpope/vim-endwise'
