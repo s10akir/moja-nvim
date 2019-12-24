@@ -47,4 +47,4 @@ repo = 'tpope/vim-surround'
 
 
 [[plugins]]
-rpeo = 'tpope/vim-endwise'
+repo = 'tpope/vim-endwise'
