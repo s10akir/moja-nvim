@@ -35,6 +35,9 @@ RUN gem install -N \
     etc \
     json \
     rubocop \
+    rubocop-performance \
+    rubocop-rails \
+    rubocop-rspec \
     solargraph
 
 # instlal dein.vim
