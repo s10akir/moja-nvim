@@ -40,7 +40,7 @@ RUN gem install -N \
     rubocop-rspec \
     solargraph
 
-# instlal dein.vim
+# install dein.vim
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
     | sh -s /root/.cache/dein
 
@@ -48,7 +48,5 @@ COPY nvim /root/.config/nvim
 
 RUN nvim +:UpdateRemotePlugins +qa
 RUN chmod -R 777 /root
-
-WORKDIR /workdir
 
 ENTRYPOINT ["nvim"]
