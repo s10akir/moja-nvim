@@ -47,6 +47,7 @@ RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/instal
 COPY nvim /root/.config/nvim
 
 RUN nvim +:UpdateRemotePlugins +qa
+RUN chmod -R 777 /root
 
 WORKDIR /workdir
 

@@ -5,5 +5,5 @@ moja-nvim
 
 
 ## alias
-`$ alias vim='docker run --rm --workdir=$(pwd) -it -v $HOME:$HOME s10akir/moja-nvim'`
+`$ alias vim='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME --workdir=$(pwd) s10akir/moja-nvim'`
 
