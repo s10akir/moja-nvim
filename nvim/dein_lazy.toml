@@ -2,8 +2,9 @@
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  let g:neocomplete#enable_smart_case = 1
-  let g:neocomplete#auto_completion_start_length = 1
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#auto_completion_start_length = 1
+  let g:deoplete#auto_complete_delay = 0
 '''
 on_i = 1
 
