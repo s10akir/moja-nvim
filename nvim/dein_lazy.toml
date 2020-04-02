@@ -17,9 +17,9 @@ hook_source = '''
 
   " 補完の確定/スニペットの展開
   imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-  if has('conceal')
-    set conceallevel=2 concealcursor=niv
-  endif
+  "if has('conceal')
+  "  set conceallevel=2 concealcursor=n
+  "endif
 '''
 on_i  = 1
 on_ft = ['snippet']
