@@ -20,6 +20,7 @@ hook_add = '''
 [[plugins]]
 repo     = 'scrooloose/nerdtree'
 
+
 [[plugins]]
 repo = 'tpope/vim-surround'
 
@@ -27,8 +28,10 @@ repo = 'tpope/vim-surround'
 [[plugins]]
 repo = 'tpope/vim-endwise'
 
+
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'

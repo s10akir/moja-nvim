@@ -50,10 +50,12 @@ hook_add = '''
 autocmd FileType vue syntax sync fromstart
 '''
 
+
 [[plugins]]
 repo = 'prettier/vim-prettier'
 build = 'npm install'
 on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift']
+
 
 [[plugins]]
 repo     = 'autozimu/LanguageClient-neovim'
@@ -69,6 +71,7 @@ let g:LanguageClient_serverCommands = {
 
 nnoremap <C-f> :call LanguageClient_textDocument_formatting()<CR>
 '''
+
 
 [[plugins]]
 repo  = 'ngmy/vim-rubocop'
