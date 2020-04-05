@@ -58,13 +58,16 @@ on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', '
 [[plugins]]
 repo     = 'autozimu/LanguageClient-neovim'
 rev      = 'next'
-build    = 'bash install.sh'
+build    = 'sh install.sh'
+on_ft    = ['ruby', 'python']
 hook_add = '''
-let g:LanguageClient_serverCommands =
-      \ {
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_serverCommands = {
       \   'ruby': ['solargraph', 'stdio'],
       \   'python': ['pyls'],
       \ }
+
+nnoremap <C-f> :call LanguageClient_textDocument_formatting()<CR>
 '''
 
 [[plugins]]
