@@ -1,40 +1,50 @@
-FROM alpine:latest
+FROM ubuntu:18.04
 
 LABEL maintainer "Akira Shinohara <k017c1067@it-neec.jp>"
 
-
-# マルチバイト文字をまともに扱うための設定
-ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
+# nvimのリポジトリ追加のために必要
+RUN apt-get update && apt-get install -y software-properties-common 
 
 # 最低限必要なパッケージ
-RUN apk update && \
-    apk upgrade && \
-    apk add --no-cache \
-    build-base \
+RUN add-apt-repository ppa:neovim-ppa/stable -y && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y \
+    build-essential \
     curl \
     gcc \
     git \
+    liblzma-dev \
     libxml2-dev \
-    libxslt-dev \
-    linux-headers \
-    musl-dev\
+    libxslt1-dev \
+    locales \
     neovim \
     nodejs \
     npm \
-    python-dev \
-    py-pip \
-    python3-dev \
-    py3-pip \
+    patch \
+    python3 \
+    python3-pip \
     ruby \
     ruby-dev \
-    && \
-    rm -rf /var/cache/apk/*
+    zlib1g-dev && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
+
+# aptのnodejsは古いのでnで入れ直す
+RUN npm i -g n && \
+    n latest && \
+    apt-get purge nodejs npm -y
+
+# マルチバイト文字をまともに扱うための設定
+RUN locale-gen en_US.UTF-8
+ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 
 RUN pip3 install --upgrade \
     pip \
     pyls-black \
     python-language-server \
     pynvim
+
 RUN gem install -N \
     etc \
     json \
@@ -43,6 +53,7 @@ RUN gem install -N \
     rubocop-rails \
     rubocop-rspec \
     solargraph
+
 RUN npm install -g prettier eslint
 
 # install dein.vim
