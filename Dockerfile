@@ -32,6 +32,7 @@ RUN apk update && \
 
 RUN pip3 install --upgrade \
     pip \
+    pyls-black \
     python-language-server \
     pynvim
 RUN gem install -N \
