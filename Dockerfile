@@ -30,7 +30,10 @@ RUN apk update && \
     && \
     rm -rf /var/cache/apk/*
 
-RUN pip3 install --upgrade pip pynvim
+RUN pip3 install --upgrade \
+    pip \
+    python-language-server \
+    pynvim
 RUN gem install -N \
     etc \
     json \

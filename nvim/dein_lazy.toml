@@ -63,6 +63,7 @@ hook_add = '''
 let g:LanguageClient_serverCommands =
       \ {
       \   'ruby': ['solargraph', 'stdio'],
+      \   'python': ['pyls'],
       \ }
 '''
 
