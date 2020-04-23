@@ -62,7 +62,11 @@ RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/instal
 
 COPY nvim /root/.config/nvim
 
+# wakatimeのダミー設定 プラグインインストール時にAPI KEYを聞かれないために必須
+RUN echo '[settings] \napi_key = DUMMY' > /root/.wakatime.cfg
+
 RUN nvim +:UpdateRemotePlugins +qa
+
 
 # Linuxでのroot:root問題対策
 RUN chmod 777 /root
