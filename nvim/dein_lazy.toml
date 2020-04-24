@@ -54,7 +54,7 @@ autocmd FileType vue syntax sync fromstart
 [[plugins]]
 repo = 'prettier/vim-prettier'
 build = 'npm install'
-on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift']
+on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift', 'toml', 'xml']
 
 
 [[plugins]]
@@ -72,7 +72,6 @@ let g:LanguageClient_serverCommands = {
 nnoremap <C-f> :call LanguageClient_textDocument_formatting()<CR>
 '''
 
-
 [[plugins]]
-repo  = 'ngmy/vim-rubocop'
+repo = 'ngmy/vim-rubocop'
 on_ft = ['ruby']

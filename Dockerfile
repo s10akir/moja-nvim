@@ -54,7 +54,12 @@ RUN gem install -N \
     rubocop-rspec \
     solargraph
 
-RUN npm install -g prettier eslint
+RUN npm install -g \
+    prettier \
+    @prettier/plugin-ruby \
+    @prettier/plugin-xml \
+    prettier-plugin-toml \
+    eslint
 
 # install dein.vim
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \

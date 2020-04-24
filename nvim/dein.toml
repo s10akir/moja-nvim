@@ -1,37 +1,29 @@
 [[plugins]]
 repo = 'vim-airline/vim-airline'
 
-
 [[plugins]]
 repo = 'ayu-theme/ayu-vim'
-
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
-
 [[plugins]]
-repo     = 'dense-analysis/ale'
+repo = 'dense-analysis/ale'
 hook_add = '''
   let g:ale_sign_column_always = 1
 '''
 
-
 [[plugins]]
-repo     = 'scrooloose/nerdtree'
-
+repo = 'scrooloose/nerdtree'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
 
-
 [[plugins]]
 repo = 'tpope/vim-endwise'
 
-
 [[plugins]]
 repo = 'tpope/vim-fugitive'
-
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
