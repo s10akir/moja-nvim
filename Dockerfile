@@ -59,7 +59,8 @@ RUN npm install -g \
     @prettier/plugin-ruby \
     @prettier/plugin-xml \
     prettier-plugin-toml \
-    eslint
+    eslint \
+    javascript-typescript-langserver
 
 # install dein.vim
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
