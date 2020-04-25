@@ -12,6 +12,8 @@ on_i = 1
 [[plugins]]
 repo = 'Shougo/neosnippet'
 hook_source = '''
+  set completeopt-=preview
+
   " 補完の選択/スニペット内のジャンプ
   imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
 
