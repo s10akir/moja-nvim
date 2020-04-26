@@ -2,12 +2,9 @@
 repo = 'Shougo/deoplete.nvim'
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_smart_case = 1
   let g:deoplete#auto_completion_start_length = 1
-  let g:deoplete#auto_complete_delay = 0
 '''
-on_i = 1
-
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
@@ -23,31 +20,26 @@ hook_source = '''
   "  set conceallevel=2 concealcursor=n
   "endif
 '''
-on_i  = 1
+on_event  = 'InsertEnter'
 on_ft = ['snippet']
 depends = ['neosnippet-snippets']
-
 
 [[plugins]]
 repo = "cohama/lexima.vim"
 on_event = "InsertEnter"
 
-
 [[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = ['toml']
-
 
 [[plugins]]
 repo  = 'Shougo/context_filetype.vim'
 on_ft = ['toml']
 
-
 [[plugins]]
 repo    = 'osyo-manga/vim-precious'
 depends = 'context_filetype.vim'
 on_ft   = ['toml']
-
 
 [[plugins]]
 repo     = 'posva/vim-vue'
@@ -57,12 +49,10 @@ hook_add = '''
 autocmd FileType vue syntax sync fromstart
 '''
 
-
 [[plugins]]
 repo = 'prettier/vim-prettier'
 build = 'npm install'
 on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift', 'toml', 'xml', 'yaml']
-
 
 [[plugins]]
 repo     = 'autozimu/LanguageClient-neovim'
