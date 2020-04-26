@@ -29,6 +29,11 @@ depends = ['neosnippet-snippets']
 
 
 [[plugins]]
+repo = "cohama/lexima.vim"
+on_event = "InsertEnter"
+
+
+[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = ['toml']
 
