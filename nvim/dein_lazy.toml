@@ -7,22 +7,23 @@ hook_source = '''
 on_event = 'InsertEnter'
 
 [[plugins]]
-repo = 'Shougo/neosnippet'
+repo = 'Shougo/neosnippet.vim'
 hook_source = '''
-  set completeopt-=preview
+set completeopt-=preview
 
-  " 補完の選択/スニペット内のジャンプ
-  imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
 
-  " 補完の確定/スニペットの展開
-  imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
-  "if has('conceal')
-  "  set conceallevel=2 concealcursor=n
-  "endif
+imap <expr><TAB> pumvisible() ? "\<C-n>" :
+  \ neosnippet#expandable_or_jumpable() ?
+  \   "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 '''
-on_event  = 'InsertEnter'
-on_ft = ['snippet']
-depends = ['neosnippet-snippets']
+depend_at = 'neosnippet-snippets'
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = "cohama/lexima.vim"
