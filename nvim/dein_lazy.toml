@@ -80,3 +80,7 @@ nnoremap <C-f> :call LanguageClient_textDocument_formatting()<CR>
 [[plugins]]
 repo = 'ngmy/vim-rubocop'
 on_ft = ['ruby']
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+on_if = 'filereadable("/root/.wakatime.cfg")'

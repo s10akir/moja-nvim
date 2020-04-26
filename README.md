@@ -10,10 +10,19 @@ moja-nvim
 macでは `-u $(id -u):$(id -g)` は不要
 
 ```shell
-$ alias vim='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME:cached -v $HOME/.wakatime.cfg:/root/.wakatime.cfg -v $HOME/.wakatime.db:/root/.wakatime.db -v $HOME/.wakatime.data:/root/.wakatime.data -v $HOME/.wakatime.log:/root/.wakatime.log --workdir=$(pwd) s10akir/moja-nvim'
+$ alias vim='docker run --rm -it -u $(id -u):$(id -g) -e HOME=/root -v $HOME:$HOME:cached --workdir=$(pwd) s10akir/moja-nvim'
 ```
 
-でも流石に長すぎるのでfunctionにしたほうが良い
+## wakatime
+wakatimeを利用している場合、
+
+* `~/wakatime.cfg` => `/root/wakatime.cfg`
+* `~/wakatime.db` => `/root/wakatime.db`
+* `~/wakatime.data` => `/root/wakatime.data`
+* `~/wakatime.log` => `/root/wakatime.log`
+
+をマウントすればwakatimeが機能する。  
+存在しない場合はプラグインをロードしない。
 
 ## function
 ### fish

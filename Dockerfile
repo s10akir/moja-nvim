@@ -73,6 +73,8 @@ RUN echo '[settings] \napi_key = DUMMY' > /root/.wakatime.cfg
 
 RUN nvim +:UpdateRemotePlugins +qa
 
+# プラグインインストール後は不要
+RUN rm /root/.wakatime.cfg
 
 # Linuxでのroot:root問題対策
 RUN chmod 777 /root
