@@ -2,7 +2,7 @@
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
-repo = 'ayu-theme/ayu-vim'
+repo = 'drewtempelmeyer/palenight.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
