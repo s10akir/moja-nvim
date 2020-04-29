@@ -41,8 +41,6 @@ ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 
 RUN pip3 install --upgrade \
     pip \
-    pyls-black \
-    python-language-server \
     pynvim
 
 RUN gem install -N \
@@ -75,7 +73,15 @@ RUN nvim +:UpdateRemotePlugins +qa
 RUN rm /root/.wakatime.cfg
 
 # cocのプラグイン
-RUN nvim -c 'CocInstall -sync coc-tsserver coc-eslint coc-vetur|q'
+RUN nvim -c 'CocInstall -sync \
+    coc-snippets coc-pairs coc-yank coc-imselect \
+    coc-tsserver coc-eslint coc-vetur coc-prettier \
+    coc-html coc-css coc-stylelint \
+    coc-json coc-yaml \
+    coc-solargraph \
+    coc-python \
+    coc-java \
+    |q'
 
 # Linuxでのroot:root問題対策
 RUN chmod 777 /root

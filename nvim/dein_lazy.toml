@@ -1,8 +1,4 @@
 [[plugins]]
-repo = "cohama/lexima.vim"
-on_event = "InsertEnter"
-
-[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = ['toml']
 
@@ -27,10 +23,6 @@ autocmd FileType vue syntax sync fromstart
 repo = 'prettier/vim-prettier'
 build = 'npm install'
 on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift', 'toml', 'xml', 'yaml']
-
-[[plugins]]
-repo = 'ngmy/vim-rubocop'
-on_ft = ['ruby']
 
 [[plugins]]
 repo = 'wakatime/vim-wakatime'

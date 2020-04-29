@@ -17,9 +17,6 @@ repo = 'scrooloose/nerdtree'
 repo = 'tpope/vim-surround'
 
 [[plugins]]
-repo = 'tpope/vim-endwise'
-
-[[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
@@ -29,3 +26,13 @@ repo = 'airblade/vim-gitgutter'
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 merged = '0'
+hook_add = '''
+noremap <C-f> <Plug>(coc-format)
+inoremap <expr><cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+'''
