@@ -5,9 +5,6 @@ repo = 'vim-airline/vim-airline'
 repo = 'drewtempelmeyer/palenight.vim'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'dense-analysis/ale'
 hook_add = '''
   let g:ale_sign_column_always = 1
@@ -27,3 +24,8 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+merged = '0'
