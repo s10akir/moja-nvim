@@ -70,7 +70,7 @@ endif
 
 " ----- colorscheme/ -----
 " MEMO: カラースキームはtomlではうまくロードできない
-set termguicolors
-set background=dark
+set background=light
 colorscheme palenight
+let g:airline_theme = "palenight"
 " ----- /colorscheme -----

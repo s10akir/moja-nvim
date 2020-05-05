@@ -41,8 +41,6 @@ ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 
 RUN pip3 install --upgrade \
     pip \
-    pyls-black \
-    python-language-server \
     pynvim
 
 RUN gem install -N \
@@ -58,9 +56,7 @@ RUN npm install -g \
     prettier \
     @prettier/plugin-ruby \
     @prettier/plugin-xml \
-    prettier-plugin-toml \
-    eslint \
-    javascript-typescript-langserver
+    prettier-plugin-toml 
 
 # install dein.vim
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
@@ -75,6 +71,17 @@ RUN nvim +:UpdateRemotePlugins +qa
 
 # プラグインインストール後は不要
 RUN rm /root/.wakatime.cfg
+
+# cocのプラグイン
+RUN nvim -c 'CocInstall -sync \
+    coc-snippets coc-pairs coc-yank coc-imselect \
+    coc-tsserver coc-eslint coc-vetur coc-prettier \
+    coc-html coc-css coc-stylelint \
+    coc-json coc-yaml \
+    coc-solargraph \
+    coc-python \
+    coc-java \
+    |q'
 
 # Linuxでのroot:root問題対策
 RUN chmod 777 /root

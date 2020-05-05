@@ -1,37 +1,4 @@
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_completion_start_length = 1
-
-  imap <expr><C-h> deoplete#smart_close_popup()
-'''
-on_event = 'InsertEnter'
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-hook_source = '''
-set completeopt-=preview
-
-imap <C-k> <Plug>(neosnippet_expand_or_jump)
-smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
-
-imap <expr><TAB> pumvisible() ? "\<C-n>" :
-  \ neosnippet#expandable_or_jumpable() ?
-  \   "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-imap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-  \ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-'''
-depend_at = 'neosnippet-snippets'
-on_event = 'InsertEnter'
-
-[[plugins]]
-repo = "cohama/lexima.vim"
-on_event = "InsertEnter"
-
-[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = ['toml']
 
@@ -56,33 +23,6 @@ autocmd FileType vue syntax sync fromstart
 repo = 'prettier/vim-prettier'
 build = 'npm install'
 on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'lua', 'php', 'python', 'ruby', 'html', 'swift', 'toml', 'xml', 'yaml']
-
-[[plugins]]
-repo     = 'autozimu/LanguageClient-neovim'
-rev      = 'next'
-build    = 'sh install.sh'
-on_ft    = ['ruby', 'python', 'javascript', 'typescript']
-hook_add = '''
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_useVirtualText = 'No'
-let g:LanguageClient_serverCommands = {
-      \   'ruby': ['solargraph', 'stdio'],
-      \   'python': ['pyls'],
-      \   'javascript': ['javascript-typescript-stdio'],
-      \   'typescript': ['javascript-typescript-stdio'],
-      \ }
-
-let g:LanguageClient_rootMarkers = {
-      \   'javascript': ['jsconfig.json'],
-      \   'typescript': ['tsconfig.json'],
-      \ }
-
-nnoremap <C-f> :call LanguageClient_textDocument_formatting()<CR>
-'''
-
-[[plugins]]
-repo = 'ngmy/vim-rubocop'
-on_ft = ['ruby']
 
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
