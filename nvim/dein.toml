@@ -41,3 +41,63 @@ inoremap <silent><expr> <TAB>
   \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 '''
+
+[[plugins]]
+repo = 'neoclide/coc-snippets'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-pairs'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-yank'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-tsserver'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-eslint'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-vetur'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-prettier'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-html'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-css'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-stylelint'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-json'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-yaml'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-solargraph'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-python'
+build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'neoclide/coc-java'
+build = 'yarn install > /dev/null'

@@ -56,7 +56,8 @@ RUN npm install -g \
     prettier \
     @prettier/plugin-ruby \
     @prettier/plugin-xml \
-    prettier-plugin-toml 
+    prettier-plugin-toml \
+    yarn
 
 # install dein.vim
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
@@ -67,21 +68,10 @@ COPY nvim /root/.config/nvim
 # wakatimeのダミー設定 プラグインインストール時にAPI KEYを聞かれないために必須
 RUN echo '[settings] \napi_key = DUMMY' > /root/.wakatime.cfg
 
-RUN nvim +:UpdateRemotePlugins +qa
+RUN nvim -c "UpdateRemotePlugins | q"
 
 # プラグインインストール後は不要
 RUN rm /root/.wakatime.cfg
-
-# cocのプラグイン
-RUN nvim -c 'CocInstall -sync \
-    coc-snippets coc-pairs coc-yank coc-imselect \
-    coc-tsserver coc-eslint coc-vetur coc-prettier \
-    coc-html coc-css coc-stylelint \
-    coc-json coc-yaml \
-    coc-solargraph \
-    coc-python \
-    coc-java \
-    |q'
 
 # Linuxでのroot:root問題対策
 RUN chmod 777 /root
