@@ -1,5 +1,6 @@
 {
   "codeLens.enable": true,
   "suggest.enablePreselect": true,
-  "solargraph.checkGemVersion": false
+  "solargraph.checkGemVersion": false,
+  "solargraph.formatting": true
 }
