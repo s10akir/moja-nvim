@@ -23,6 +23,9 @@ repo = 'tpope/vim-surround'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
 repo = 'neoclide/coc.nvim'
 rev = 'release'
 merged = '0'
