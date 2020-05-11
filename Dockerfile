@@ -63,12 +63,13 @@ RUN npm install -g \
 RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
     | sh -s /root/.cache/dein
 
+# install vim plugins
 COPY nvim /root/.config/nvim
 
 # wakatimeのダミー設定 プラグインインストール時にAPI KEYを聞かれないために必須
 RUN echo '[settings] \napi_key = DUMMY' > /root/.wakatime.cfg
 
-RUN nvim -c "UpdateRemotePlugins | q"
+RUN nvim -c "q"
 
 # プラグインインストール後は不要
 RUN rm /root/.wakatime.cfg
