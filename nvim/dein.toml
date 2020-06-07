@@ -98,3 +98,7 @@ build = 'yarn install > /dev/null'
 [[plugins]]
 repo = 'neoclide/coc-java'
 build = 'yarn install > /dev/null'
+
+[[plugins]]
+repo = 'josa42/coc-go'
+build = 'yarn install > /dev/null'
