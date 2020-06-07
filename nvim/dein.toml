@@ -8,12 +8,6 @@ repo = 'drewtempelmeyer/palenight.vim'
 repo = 'miyakogi/seiya.vim'
 
 [[plugins]]
-repo = 'dense-analysis/ale'
-hook_add = '''
-  let g:ale_sign_column_always = 1
-'''
-
-[[plugins]]
 repo = 'scrooloose/nerdtree'
 
 [[plugins]]
