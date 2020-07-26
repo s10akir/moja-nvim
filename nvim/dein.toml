@@ -9,6 +9,9 @@ repo = 'miyakogi/seiya.vim'
 
 [[plugins]]
 repo = 'scrooloose/nerdtree'
+hook_add = '''
+nmap <C-t> :NERDTreeToggle<CR>
+'''
 
 [[plugins]]
 repo = 'tpope/vim-surround'
