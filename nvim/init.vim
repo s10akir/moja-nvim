@@ -10,6 +10,7 @@ set list
 set showmatch
 set cursorline
 set autoread
+execute "set colorcolumn=" . join(range(121, 9999), ',')
 " ----- /visual -----
 
 
