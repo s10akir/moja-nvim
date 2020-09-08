@@ -2,7 +2,7 @@
 repo = 'vim-airline/vim-airline'
 
 [[plugins]]
-repo = 'drewtempelmeyer/palenight.vim'
+repo = 'sainnhe/sonokai'
 
 [[plugins]]
 repo = 'miyakogi/seiya.vim'

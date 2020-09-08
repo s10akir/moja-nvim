@@ -80,7 +80,9 @@ endif
 
 " ----- colorscheme/ -----
 " MEMO: カラースキームはtomlではうまくロードできない
-set background=light
-colorscheme palenight
-let g:airline_theme = "palenight"
+"set termguicolors " 有効にするとSeiyaで透過できなくなる
+let g:sonokai_style = 'andromeda'
+let g:sonokai_disable_italic_comment = 1
+let g:airline_theme = "sonokai"
+colorscheme sonokai
 " ----- /colorscheme -----
