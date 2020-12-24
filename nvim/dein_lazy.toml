@@ -27,3 +27,11 @@ on_ft = ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', '
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
 on_if = 'filereadable("/root/.wakatime.cfg")'
+
+[[plugins]]
+repo     = 'mattn/emmet-vim'
+on_ft    = ['css', 'less', 'scss', 'markdown', 'vue', 'php', 'html', 'erb']
+hook_add = '''
+" let g:user_emmet_leader_key='<Space>'
+'''
+
