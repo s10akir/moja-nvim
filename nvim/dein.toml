@@ -5,6 +5,9 @@ repo = 'vim-airline/vim-airline'
 repo = 'sainnhe/sonokai'
 
 [[plugins]]
+repo = 'sickill/vim-monokai'
+
+[[plugins]]
 repo = 'miyakogi/seiya.vim'
 
 [[plugins]]
