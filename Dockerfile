@@ -1,77 +1,134 @@
-FROM ubuntu:18.04
+# syntax = docker/dockerfile:1.3-labs
 
-LABEL maintainer "Akira Shinohara <k017c1067@it-neec.jp>"
+##################
+### base image ###
+##################
+FROM debian:buster-slim as base
 
-# nvimのリポジトリ追加のために必要
-RUN apt-get update && apt-get install -y software-properties-common 
+# install apt dependencies package
+RUN <<EOF
 
-# 最低限必要なパッケージ
-RUN add-apt-repository ppa:neovim-ppa/stable -y && \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get install -y \
-    build-essential \
-    curl \
-    gcc \
-    git \
-    liblzma-dev \
-    libxml2-dev \
-    libxslt1-dev \
-    locales \
-    neovim \
-    nodejs \
-    npm \
-    patch \
-    python3 \
-    python3-pip \
-    ruby \
-    ruby-dev \
-    zlib1g-dev && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+  apt-get update
+  apt-get upgrade -y
 
-# aptのnodejsは古いのでnで入れ直す
-RUN npm i -g n && \
-    n latest && \
-    apt-get purge nodejs npm -y
+  apt-get install -y curl
+  apt-get install -y git
+  apt-get install -y language-pack-en
+  apt-get install -y locales
+  apt-get install -y python3
+  apt-get install -y python3-pip
 
-# マルチバイト文字をまともに扱うための設定
+  apt-get clean
+  rm -rf /var/lib/apt/lists/*
+EOF
+
+# create locale
 RUN locale-gen en_US.UTF-8
-ENV LANG="en_US.UTF-8" LANGUAGE="en_US:ja" LC_ALL="en_US.UTF-8"
 
-RUN pip3 install --upgrade \
-    pip \
-    pynvim
+# install node.js 16.x and yarn
+RUN <<EOF
+  curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 
-RUN gem install -N \
-    etc \
-    json \
-    rubocop \
-    rubocop-performance \
-    rubocop-rails \
-    rubocop-rspec \
-    solargraph
+  apt-get install -y nodejs
 
-RUN npm install -g \
-    prettier \
-    @prettier/plugin-ruby \
-    @prettier/plugin-xml \
-    prettier-plugin-toml \
-    yarn
+  apt-get clean
+  rm -rf /var/lib/apt/lists/*
 
-# install dein.vim
-RUN curl -sf https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh \
-    | sh -s /root/.cache/dein
+  npm i -g yarn
+EOF
 
-# install vim plugins
+# install neovim python3 provider
+RUN pip3 install neovim
+
+########################
+### fetch nvim stage ###
+########################
+FROM debian:buster-slim as nvim-fetcher
+
+WORKDIR /tmp
+
+RUN <<EOF
+  apt-get update
+  apt-get upgrade -y
+
+  apt-get install -y curl
+
+  apt-get clean
+  rm -rf /var/lib/apt/lists/*
+EOF
+
+RUN curl -L https://github.com/neovim/neovim/releases/download/v0.6.0/nvim.appimage -o nvim.appimage
+
+RUN chmod a+x /tmp/nvim.appimage
+RUN /tmp/nvim.appimage --appimage-extract
+
+###########################
+### fetch plugins stage ###
+###########################
+
+FROM debian:buster-slim as plugins-fetcher
+
+RUN mkdir /tmp/plugins
+RUN mkdir /tmp/plugins/start
+RUN mkdir /tmp/plugins/opt
+
+RUN <<EOF
+  apt-get update
+  apt-get upgrade -y
+
+  apt-get install -y git
+
+  apt-get clean
+  rm -rf /var/lib/apt/lists/*
+EOF
+
+# fetch start plugins
+WORKDIR /tmp/plugins/start
+RUN <<EOF
+  git clone https://github.com/airblade/vim-gitgutter.git
+  git clone https://github.com/markvincze/panda-vim.git
+  git clone https://github.com/neoclide/coc.nvim.git -b release
+  git clone https://github.com/scrooloose/nerdtree.git
+  git clone https://github.com/tpope/vim-surround.git
+  git clone https://github.com/vim-airline/vim-airline.git
+  git clone https://github.com/vim-airline/vim-airline-themes.git
+EOF
+
+# fetch opt plugins
+WORKDIR /tmp/plugins/opt
+RUN <<EOF
+  git clone https://github.com/prettier/vim-prettier.git
+EOF
+
+#####################
+### release image ###
+#####################
+FROM base as nvim
+
+ENV LANG='en_US.UTF-8'
+ENV LC_ALL='en_US.UTF-8'
+ENV LANGUAGE='en_US:ja'
+
+RUN mkdir /home/working
+WORKDIR /home/working
+
+COPY --from=nvim-fetcher /tmp/squashfs-root/usr /usr/local/nvim
+RUN ln -s /usr/local/nvim/bin/nvim /usr/local/bin/nvim
+
 COPY nvim /root/.config/nvim
 
-# wakatimeのダミー設定 プラグインインストール時にAPI KEYを聞かれないために必須
-RUN echo '[settings] \napi_key = DUMMY' > /root/.wakatime.cfg
+RUN mkdir /root/.config/nvim/pack/
+RUN mkdir /root/.config/coc/
+COPY --from=plugins-fetcher /tmp/plugins /root/.config/nvim/pack/plugins
 
-RUN nvim -c "q"
+# install coc-plugins
+RUN nvim +'CocInstall -sync \
+  coc-ansible \
+  coc-css \
+  coc-eslint \
+  coc-json \
+  coc-prettier \
+  coc-tsserver' \
+  +qall
 
-# プラグインインストール後は不要
-RUN rm /root/.wakatime.cfg
-
-ENTRYPOINT ["nvim"]
+ENTRYPOINT [ "nvim" ]

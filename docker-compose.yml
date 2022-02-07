@@ -1,0 +1,7 @@
+version: '3.8'
+services:
+  nvim:
+    image: s10akir/moja-nvim:latest
+    volumes:
+      - ./:/home/working
+    command: 'nvim Dockerfile'
