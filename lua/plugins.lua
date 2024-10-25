@@ -25,33 +25,33 @@ require("packer").startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "rcarriga/nvim-notify"
   use "MunifTanjim/nui.nvim"
-  use "folke/noice.nvim"
+  -- use "folke/noice.nvim"
 
   -- Navigation
   use "kylechui/nvim-surround"
 end)
 
 require("nvim-surround").setup()
-require("noice").setup({
-  cmdline = {
-    view = "cmdline",
-  },
-  messages = {
-    view = "mini",
-  },
-  lsp = {
-  },
-  presets = {
-    lsp_doc_border = true,
-  },
-})
+-- require("noice").setup({
+--   cmdline = {
+--     -- view = "cmdline",
+--   },
+--   messages = {
+--     view = "mini",
+--   },
+--   lsp = {
+--   },
+--   presets = {
+--     lsp_doc_border = true,
+--   },
+-- })
 
 require("mason").setup()
 require("mason-lspconfig").setup_handlers({ function(server)
   local opt = {
     capabilities = require("cmp_nvim_lsp").default_capabilities(
       vim.lsp.protocol.make_client_capabilities()
-    )
+    ),
   }
 
   require("lspconfig")[server].setup(opt)
@@ -73,6 +73,7 @@ vim.diagnostic.config {
     border = "rounded",
   },
   serverity_sort = true,
+  virtual_text = false,
 }
 
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -162,7 +163,7 @@ local function open_diagnostics_on_hover()
   })
 end
 
-vim.api.nvim_set_option('updatetime', 300)
+vim.api.nvim_set_option('updatetime', 500)
 vim.api.nvim_create_augroup("lsp_diagnostics_hold", { clear = true })
 vim.api.nvim_create_autocmd({ "CursorHold" }, {
   pattern = "*",
