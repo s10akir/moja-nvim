@@ -12,12 +12,15 @@ require("packer").startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/vim-vsnip"
   use "folke/lazydev.nvim"
+  use "nvimtools/none-ls.nvim"
+  use "nvim-lua/plenary.nvim"
+  use "jay-babu/mason-null-ls.nvim"
 
   -- Diagnostics
   use "github/copilot.vim"
 
   -- Syntax highlighting
-  use "nvim-treesitter/nvim-treesitter"
+  -- use "nvim-treesitter/nvim-treesitter"
 
   -- UI
   use "rebelot/kanagawa.nvim"
@@ -56,6 +59,10 @@ require("mason-lspconfig").setup_handlers({ function(server)
 
   require("lspconfig")[server].setup(opt)
 end })
+
+require("mason-null-ls").setup({
+  handlers = {},
+})
 
 vim.api.nvim_set_option("showmode", false)
 require("lualine").setup {
