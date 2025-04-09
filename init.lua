@@ -29,3 +29,5 @@ opt.hlsearch = true
 vim.cmd[[colorscheme kanagawa]]
 
 opt.errorbells = false
+
+opt.synmaxcol = 200
