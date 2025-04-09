@@ -16,6 +16,9 @@ require("packer").startup(function(use)
   use "nvim-lua/plenary.nvim"
   use "jay-babu/mason-null-ls.nvim"
 
+  -- AI
+  use 'joshuavial/aider.nvim'
+
   -- Diagnostics
   use "github/copilot.vim"
 
