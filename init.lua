@@ -11,6 +11,7 @@ opt.termguicolors = true
 opt.number = true
 opt.expandtab = true
 opt.smartindent = true
+opt.cursorline = true
 
 -- default tab settings
 opt.tabstop = 2
