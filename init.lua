@@ -26,7 +26,8 @@ opt.wrapscan = true
 opt.incsearch = true
 opt.hlsearch = true
 
-vim.cmd[[colorscheme kanagawa]]
+-- vim.cmd[[colorscheme kanagawa]]
+vim.cmd.colorscheme "catppuccin-frappe"
 
 opt.errorbells = false
 

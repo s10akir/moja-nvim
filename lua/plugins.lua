@@ -31,6 +31,7 @@ require("packer").startup(function(use)
   use "kyazdani42/nvim-web-devicons"
   use "rcarriga/nvim-notify"
   use "MunifTanjim/nui.nvim"
+  use { "catppuccin/nvim", as = "catppuccin" }
   -- use "folke/noice.nvim"
 
   -- Navigation
