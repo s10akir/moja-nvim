@@ -5,8 +5,8 @@ require("packer").startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig"
-  use "williamboman/mason.nvim"
-  use "williamboman/mason-lspconfig.nvim"
+  use "mason-org/mason.nvim"
+  use "mason-org/mason-lspconfig.nvim"
   use "hrsh7th/nvim-cmp"
   use "hrsh7th/cmp-cmdline"
   use "hrsh7th/cmp-nvim-lsp"
@@ -54,15 +54,16 @@ require("nvim-surround").setup()
 -- })
 
 require("mason").setup()
-require("mason-lspconfig").setup_handlers({ function(server)
-  local opt = {
-    capabilities = require("cmp_nvim_lsp").default_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    ),
-  }
-
-  require("lspconfig")[server].setup(opt)
-end })
+require("mason-lspconfig").setup()
+-- require("mason-lspconfig").setup_handlers({ function(server)
+--   local opt = {
+--     capabilities = require("cmp_nvim_lsp").default_capabilities(
+--       vim.lsp.protocol.make_client_capabilities()
+--     ),
+--   }
+-- 
+--   require("lspconfig")[server].setup(opt)
+-- end })
 
 require("mason-null-ls").setup({
   handlers = {},
